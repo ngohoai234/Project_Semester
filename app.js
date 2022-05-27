@@ -58,10 +58,7 @@ app.use(cookieParser());
 app.use('/', userRoute);
 
 app.all('*', function (req, res, next) {
-  const error = new AppError(
-    `Can't find ${req.originalUrl} on this server`,
-    404
-  );
+  const error = new AppError(`Can't find ${req.originalUrl} on this server`, 404);
   next(error);
 });
 
